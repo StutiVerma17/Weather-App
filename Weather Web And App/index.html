@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌤️ Indian Weather Forecast</h1>
+            <p class="subtitle">Get real-time weather updates for cities across India</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    placeholder="Enter Indian city name (e.g., Mumbai, Delhi, Bangalore)"
+                    list="indian-cities"
+                >
+                <datalist id="indian-cities">
+                    <option value="Mumbai">
+                    <option value="Delhi">
+                    <option value="Bangalore">
+                    <option value="Hyderabad">
+                    <option value="Chennai">
+                    <option value="Kolkata">
+                    <option value="Pune">
+                    <option value="Ahmedabad">
+                    <option value="Jaipur">
+                    <option value="Lucknow">
+                    <option value="Patna">
+                    <option value="Bhopal">
+                    <option value="Chandigarh">
+                    <option value="Kochi">
+                    <option value="Guwahati">
+                </datalist>
+                <button id="searchBtn">Search</button>
+            </div>
+            <div class="quick-cities">
+                <button class="city-btn" data-city="Mumbai">Mumbai</button>
+                <button class="city-btn" data-city="Delhi">Delhi</button>
+                <button class="city-btn" data-city="Bangalore">Bangalore</button>
+                <button class="city-btn" data-city="Chennai">Chennai</button>
+                <button class="city-btn" data-city="Kolkata">Kolkata</button>
+                <button class="city-btn" data-city="Patna">Patna</button>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <div id="errorMessage" class="error hidden"></div>
+
+        <div id="weatherDisplay" class="weather-display hidden">
+            <div class="weather-header">
+                <div class="location-info">
+                    <h2 id="cityName"></h2>
+                    <p id="dateTime"></p>
+                </div>
+                <div class="weather-icon-main">
+                    <img id="weatherIcon" src="" alt="Weather icon">
+                </div>
+            </div>
+
+            <div class="main-weather">
+                <div class="temperature">
+                    <span id="temp" class="temp-value"></span>
+                    <span class="temp-unit">°C</span>
+                </div>
+                <div class="weather-description">
+                    <p id="description"></p>
+                    <p id="feelsLike"></p>
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Humidity</p>
+                        <p id="humidity" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Wind Speed</p>
+                        <p id="windSpeed" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🌡️</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Pressure</p>
+                        <p id="pressure" class="detail-value"></p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👁️</div>
+                    <div class="detail-info">
+                        <p class="detail-label">Visibility</p>
+                        <p id="visibility" class="detail-value"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sun-times">
+                <div class="sun-card">
+                    <span class="sun-icon">🌅</span>
+                    <div>
+                        <p class="sun-label">Sunrise</p>
+                        <p id="sunrise" class="sun-time"></p>
+                    </div>
+                </div>
+                <div class="sun-card">
+                    <span class="sun-icon">🌇</span>
+                    <div>
+                        <p class="sun-label">Sunset</p>
+                        <p id="sunset" class="sun-time"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by OpenWeatherMap API | Made for Indian Cities 🇮🇳</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
